@@ -1,7 +1,7 @@
 === Plugin Name ===
 Authorize.net Payment Gateway For WooCommerce
 Contributors: ishanverma
-Donate link: http://www.phptubelight.com/
+Donate link: #
 Tags: woocommerce authorize.net, authorize.net, payment gateway, woocommerce, woocommerce payment gateway
 Requires at least: 3.0.1
 Tested up to: 3.4
@@ -57,14 +57,14 @@ SSL is not required
 
 == Screenshots ==
 
-1. Activate Plugin screenshot-1.
-2. Go to WooCommerce Settings.
-3. Select Payment Gateways tab.
-4. Select Authorize.net option.
-5. Enable Authorize.net option from this page.
-6. Enter the details.
-7. Set gateway mode.
-8. Sample screenshot from checkout page
+1. Activate Plugin screenshot-1.png
+2. Go to WooCommerce Settings screenshot-2.png
+3. Select Payment Gateways tab screenshot-3.png
+4. Select Authorize.net option screenshot-4.png
+5. Enable Authorize.net option from this page screenshot-5.png
+6. Enter the details screenshot-6.png
+7. Set gateway mode screenshot-7.png
+8. Sample screenshot from checkout page screenshot-8.png
 
 
 == Changelog ==
