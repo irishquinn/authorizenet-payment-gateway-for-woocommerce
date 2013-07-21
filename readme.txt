@@ -57,7 +57,7 @@ SSL is not required
 
 == Screenshots ==
 
-1. Activate Plugin.
+1. Activate Plugin screenshot-1.
 2. Go to WooCommerce Settings.
 3. Select Payment Gateways tab.
 4. Select Authorize.net option.
