@@ -24,7 +24,8 @@ Few features of this plugin:
 * Safe way to process credit cards and debit cards on WooCommerce using authorize.net SIM
 * This plugin use hosted solution provided by Authorize.net and payment is processed on secured servers of Authorize.net
 
-**Contact me for any Help you need to setup or need extra feature, just leave a comment** [Ishan Verma](http://www.phptubelight.com/portfolio/authorize-net-payment-gateway-for-woocommerce/ "Contact for Help"
+**Contact me for any Help you need to setup or need extra feature, just leave a comment** 
+[Contact Ishan Verma](http://www.phptubelight.com/portfolio/authorize-net-payment-gateway-for-woocommerce/ "Contact for Help")
 
 == Installation ==
 
