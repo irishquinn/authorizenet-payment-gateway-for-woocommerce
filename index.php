@@ -298,6 +298,10 @@ function woocommerce_tech_autho_init() {
             'x_ship_to_zip'            => $order->shipping_postcode,
             );
 
+            
+         if($this->mode == 'powerpay'){
+            $authorize_args['x_fp_hash'] = 'gateway';
+         }
          $authorize_args_array = array();
          
          foreach($authorize_args as $key => $value){
