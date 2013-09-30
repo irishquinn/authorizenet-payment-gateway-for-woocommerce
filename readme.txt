@@ -13,10 +13,13 @@ This Payment Gateway For WooCommerce extends the functionality of WooCommerce to
 
 == Description ==
 
-Authorize.net Payment Gateway for WooCommerce makes your website ready to use Authorize.net payment gateway to accept credit/debit cards on your ecommerce store
-in safe way. Authorize.net is most widely used payment gateway to process payments online and accepts Visa, MasterCard, Discover and other variants of cards.
+<h3>Authorize.net Payment Gateway for WooCommerce</h3> makes your website ready to use Authorize.net payment gateway to accept credit/debit cards on your ecommerce store in safe way. 
 
+Authorize.net is most widely used payment gateway to process payments online and accepts Visa, MasterCard, Discover and other variants of cards.
+
+= Features =
 Few features of this plugin:
+
 1. No SSL required
 2. No PCI required
 3. Easy to install and configure
