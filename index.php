@@ -2,7 +2,7 @@
 /*
    Plugin Name: Authorize.net Payment Gateway For WooCommerce
    Description: Extends WooCommerce to Process Payments with Authorize.net gateway.
-   Version: 1.2
+   Version: 1.2.1
    Plugin URI: http://www.phptubelight.com?source=woocomautho
    Author: Ishan Verma 
    Author URI: http://www.phptubelight.com?source=woocomautho
@@ -302,6 +302,7 @@ function woocommerce_tech_autho_init() {
          if($this->mode == 'powerpay'){
             $authorize_args['x_fp_hash'] = 'gateway';
          }
+         
          $authorize_args_array = array();
          
          foreach($authorize_args as $key => $value){
