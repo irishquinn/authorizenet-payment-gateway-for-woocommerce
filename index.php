@@ -2,7 +2,7 @@
 /*
    Plugin Name: Authorize.net Payment Gateway For WooCommerce
    Description: Extends WooCommerce to Process Payments with Authorize.net gateway.
-   Version: 1.0
+   Version: 1.2
    Plugin URI: http://www.phptubelight.com?source=woocomautho
    Author: Ishan Verma 
    Author URI: http://www.phptubelight.com?source=woocomautho
@@ -21,15 +21,6 @@ function woocommerce_tech_autho_init() {
    * Localisation
    */
    load_plugin_textdomain('wc-tech-autho', false, dirname( plugin_basename( __FILE__ ) ) . '/languages');
-
-   if ( $_GET['msg'] != '' ){
-     add_action('the_content', 'showMessage');
-   }
-
-   function showMessage($content)
-   {
-      return '<div class="box '.htmlentities($_GET['type']).'-box">'.htmlentities(urldecode($_GET['msg'])).'</div>'.$content;
-   }
    
    /**
    * Authorize.net Payment Gateway class
@@ -55,6 +46,7 @@ function woocommerce_tech_autho_init() {
          $this->failed_message   = $this->settings['failed_message'];
          $this->liveurl          = 'https://secure.authorize.net/gateway/transact.dll';
          $this->testurl          = 'https://test.authorize.net/gateway/transact.dll';
+         $this->powerpay         = 'https://verifi.powerpay.biz/cart/ausi.php';
          $this->msg['message']   = "";
          $this->msg['class']     = "";
         
@@ -113,7 +105,7 @@ function woocommerce_tech_autho_init() {
             'working_mode'    => array(
                   'title'        => __('API Mode'),
                   'type'         => 'select',
-                  'options'      => array('false'=>'Live Mode', 'true'=>'Test/Sandbox Mode'),
+            'options'      => array('false'=>'Live Mode', 'true'=>'Test/Sandbox Mode', 'powerpay' => 'PowerPay Payment Gateway Emulator'),
                   'description'  => "Live/Test Mode" )
          );
       }
@@ -141,6 +133,10 @@ function woocommerce_tech_autho_init() {
             echo wpautop(wptexturize($this->description));
       }
       
+      public function thankyou_page($order_id) 
+      {
+       
+      }
       /**
       * Receipt Page
       **/
@@ -224,13 +220,18 @@ function woocommerce_tech_autho_init() {
                }
 
             }
-            $redirect_url = (get_option('woocommerce_thanks_page_id') != '' ) ? get_permalink(get_option('woocommerce_thanks_page_id')): get_site_url().'/' ;
-            $redirect_url = add_query_arg( array('msg'=> urlencode($this->msg['message']), 'type'=>$this->msg['class']), $redirect_url );
+            $redirect_url =  add_query_arg('order',
+                                                  $order->id, 
+                                                  add_query_arg('key', $order->order_key, 
+                                                  get_permalink(get_option('woocommerce_thanks_page_id'))));
             $this->web_redirect( $redirect_url); exit;
          }
          else{
             
-            $redirect_url =  (get_option('woocommerce_thanks_page_id') != '' ) ? get_permalink(get_option('woocommerce_thanks_page_id')): get_site_url().'/' ;
+            $redirect_url =  add_query_arg('order',
+                                                  $order->id, 
+                                                  add_query_arg('key', $order->order_key, 
+                                                  get_permalink(get_option('woocommerce_thanks_page_id'))));
             $this->web_redirect($redirect_url.'?msg=Unknown_error_occured');
             exit;
          }
@@ -303,11 +304,14 @@ function woocommerce_tech_autho_init() {
            $authorize_args_array[] = "<input type='hidden' name='$key' value='$value'/>";
          }
          
-         if($this->mode == 'true'){
+        if($this->mode == 'true'){
            $processURI = $this->testurl;
          }
+         else if($this->mode == 'powerpay'){
+           $processURI = $this->powerpay;
+         }
          else{
-           $processURI = $this->liveurl;
+             $processURI = $this->liveurl;
          }
          
          $html_form    = '<form action="'.$processURI.'" method="post" id="authorize_payment_form">' 

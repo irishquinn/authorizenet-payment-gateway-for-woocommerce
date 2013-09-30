@@ -4,8 +4,8 @@ Contributors: ishanverma
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BGLLRRL64AKZU
 Tags: woocommerce authorize.net, authorize.net, payment gateway, woocommerce, woocommerce payment gateway
 Requires at least: 3.0.1
-Tested up to: 3.6
-Stable tag: 1.0
+Tested up to: 3.6.1
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,6 +23,7 @@ Few features of this plugin:
 4. Option to configure success & failure message
 5. Safe way to process credit cards and debit cards on WooCommerce using authorize.net SIM
 6. This plugin use hosted solution provided by Authorize.net and payment is processed on secured servers of Authorize.net
+7. Now with Powerpay Payment Gateway Emulator Support. [PowerPay Emulator](https://verifi.powerpay.biz/merchants/resources/integration/integration_portal.php?tid=05c669210ef24ff5e635eeed8ed5d4b8#carts_authnet "Powerpay Emulator")
 
 **Contact me for any Help you need to setup or need extra feature, just leave a comment** 
 [Contact Ishan Verma](http://www.phptubelight.com/portfolio/authorize-net-payment-gateway-for-woocommerce/ "Contact for Help")
