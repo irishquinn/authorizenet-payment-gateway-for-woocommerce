@@ -4,8 +4,8 @@ Contributors: ishanverma
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BGLLRRL64AKZU
 Tags: woocommerce authorize.net, authorize.net, payment gateway, woocommerce, woocommerce payment gateway
 Requires at least: 3.0.1
-Tested up to: 3.7
-Stable tag: 1.5
+Tested up to: 3.8.1
+Stable tag: 1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,7 +16,7 @@ This Payment Gateway For WooCommerce extends the functionality of WooCommerce to
 <h3>Authorize.net Payment Gateway for WooCommerce</h3> makes your website ready to use Authorize.net payment gateway to accept credit/debit cards on your ecommerce store in safe way. 
 
 Authorize.net is most widely used payment gateway to process payments online and accepts Visa, MasterCard, Discover and other variants of cards.
-
+<h3>WooCommerce 2.1.1 Compatible</h3>
 = Features =
 Few features of this plugin:
 
@@ -75,6 +75,9 @@ SSL is not required
 
 
 == Changelog ==
+
+= 2.0 =
+* Compatible with woocommerce 2.1.1
 
 = 1.0 =
 * First Version
