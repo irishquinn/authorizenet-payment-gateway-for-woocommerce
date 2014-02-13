@@ -1,8 +1,8 @@
 <?php
 /*
    Plugin Name: Authorize.net Payment Gateway For WooCommerce
-   Description: Extends WooCommerce to Process Payments with Authorize.net gateway.
-   Version: 1.2.3
+   Description: Extends WooCommerce 2.1.1 to Process Payments with Authorize.net gateway.
+   Version: 2.0
    Plugin URI: http://www.phptubelight.com?source=woocomautho
    Author: Ishan Verma 
    Author URI: http://www.phptubelight.com?source=woocomautho
@@ -152,11 +152,10 @@ function woocommerce_tech_autho_init() {
       function process_payment($order_id)
       {
          $order = new WC_Order($order_id);
-         return array('result'   => 'success',
-                     'redirect'  => add_query_arg('order',
-                                    $order->id, 
-                                    add_query_arg('key', $order->order_key, get_permalink(get_option('woocommerce_pay_page_id'))))
-         );
+         return array(
+         				'result' 	=> 'success',
+         				'redirect'	=> $order->get_checkout_payment_url( true )
+         			);
       }
       
       /**
@@ -220,18 +219,12 @@ function woocommerce_tech_autho_init() {
                }
 
             }
-            $redirect_url =  add_query_arg('order',
-                                                  $order->id, 
-                                                  add_query_arg('key', $order->order_key, 
-                                                  get_permalink(get_option('woocommerce_thanks_page_id'))));
+            $redirect_url = get_site_url().'/checkout/order-received/'.$order->id.'/?key='.$order->order_key;
             $this->web_redirect( $redirect_url); exit;
          }
          else{
             
-            $redirect_url =  add_query_arg('order',
-                                                  $order->id, 
-                                                  add_query_arg('key', $order->order_key, 
-                                                  get_permalink(get_option('woocommerce_thanks_page_id'))));
+            $redirect_url = get_site_url().'/checkout/order-received/';
             $this->web_redirect($redirect_url.'?msg=Unknown_error_occured');
             exit;
          }
@@ -264,8 +257,7 @@ function woocommerce_tech_autho_init() {
          else { 
             $fingerprint = bin2hex(mhash(MHASH_MD5,  $this->login . "^" . $sequence . "^" . $timeStamp . "^" . $order->order_total . "^", $this->transaction_key)); 
          }
-         $redirect_url = (get_option('woocommerce_thanks_page_id') != '' ) ? get_permalink(get_option('woocommerce_thanks_page_id')): get_site_url().'/' ;
-         $relay_url = add_query_arg( array('wc-api' => get_class( $this ) ,'order_id' => $order_id ), $redirect_url );
+          $relay_url = get_site_url().'/wc-api/'.get_class( $this );
          
          $authorize_args = array(
             'x_login'                  => $this->login,
