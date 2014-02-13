@@ -76,6 +76,9 @@ SSL is not required
 
 == Changelog ==
 
+= 2.0 =
+* Compatible with woocommerce 2.1.1
+
 = 1.0 =
 * First Version
 
